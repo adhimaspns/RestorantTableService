@@ -13,10 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('/', function () {
+        return view('layouts.admin.app');
+    });
 
-Auth::routes();
+    //! Beranda
+    Route::get('beranda', 'admin\BerandaController@index'); 
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
