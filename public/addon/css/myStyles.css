@@ -5,3 +5,8 @@
 .list-logout:hover {
     color: white !important;
 }
+
+/* Utilities */
+.margin-0-0-20 {
+    margin: 0px 0px 20px
+}
