@@ -1,0 +1,7 @@
+/* Sidebar */
+.list-logout {
+    color: red !important;
+}
+.list-logout:hover {
+    color: white !important;
+}
