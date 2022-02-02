@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('no_telp')->unique();
             $table->string('username')->unique();
             $table->string('password');
+            $table->string('status');
             $table->string('level');
             $table->timestamps();
         });
