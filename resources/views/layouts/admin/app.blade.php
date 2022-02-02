@@ -20,6 +20,7 @@
         @yield('main-content')
 
         <!-- Js -->
+        @stack('prepend-scripts')
         @include('includes.scripts')
     </body>
 </html>
