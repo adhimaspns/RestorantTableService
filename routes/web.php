@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
     //! AUTH
     Route::get('register', 'AuthController@register'); 
+    Route::post('register', 'AuthController@proses_login');
 
     //! Route Admin
     Route::prefix('admin')->group(function() {
