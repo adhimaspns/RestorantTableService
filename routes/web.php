@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('/', function () {
+        return view('layouts.admin.app');
+    });
+
+    //! Route Admin
+    Route::prefix('admin')->group(function() {
+
+        //! Users Setting
+        Route::get('/user-setting', 'Admin\UserController@index')->name('user.index'); 
+        Route::get('/user-setting/{id}', 'Admin\UserController@show');
+        Route::get('/user-json', 'Admin\UserController@user_json'); 
+    }); 
