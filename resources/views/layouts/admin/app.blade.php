@@ -19,6 +19,9 @@
         <!-- Main Content -->
         @yield('main-content')
 
+        <!-- SweetAlert -->
+        @include('sweetalert::alert')
+
         <!-- Js -->
         @stack('prepend-scripts')
         @include('includes.scripts')
