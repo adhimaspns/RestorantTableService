@@ -23,5 +23,6 @@ use Illuminate\Support\Facades\Route;
         //! Users Setting
         Route::get('/user-setting', 'Admin\UserController@index')->name('user.index'); 
         Route::get('/user-setting/{id}', 'Admin\UserController@show');
+        Route::get('/user-nonaktif/{id}', 'Admin\UserController@user_nonaktif');
         Route::get('/user-json', 'Admin\UserController@user_json'); 
     }); 
