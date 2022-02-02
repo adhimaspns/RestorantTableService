@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
                 'no_telp'       => "08970898910",
                 'username'      => "kasir_adhimas",
                 'password'      => bcrypt('kasir123'),
+                'status'        => "Aktif",
                 'level'         => "Kasir",
                 'created_at'    => Carbon::now()
             ],
@@ -35,6 +36,7 @@ class UserSeeder extends Seeder
                 'no_telp'       => "081615227898",
                 'username'      => "mustawi",
                 'password'      => bcrypt('mustawi123'),
+                'status'        => "Aktif",
                 'level'         => "Customer",
                 'created_at'    => Carbon::now()
             ] 
