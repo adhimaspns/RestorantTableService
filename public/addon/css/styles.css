@@ -2,9 +2,9 @@
 
 
 /*! DARK MODE */
-body {
+/* body {
     background-color: #4B5D67 !important;
-}
+} */
 
 /*! Margin, Border & padding  */
 .border-radius-20 {
@@ -15,6 +15,9 @@ body {
 }
 .padding-20 {
     padding: 20px !important;
+}
+.margin-top-50 {
+    margin-top: 50px !important;
 }
 
 /*! BTN */
