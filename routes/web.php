@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
         return view('layouts.admin.app');
     });
 
+    //! AUTH
+    Route::get('register', 'AuthController@register'); 
+
     //! Route Admin
     Route::prefix('admin')->group(function() {
 
