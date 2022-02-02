@@ -1,0 +1,43 @@
+/* CUSTOM CSS */
+
+
+/*! DARK MODE */
+body {
+    background-color: #4B5D67 !important;
+}
+
+/*! Margin, Border & padding  */
+.border-radius-20 {
+    border-radius: 20px !important;
+}
+.border-dark {
+    border-top: #4B5D67 !important;
+}
+.padding-20 {
+    padding: 20px !important;
+}
+
+/*! BTN */
+.btn-close {
+    float: right !important;
+    color: #EDEDED !important;
+    text-decoration: none !important;
+}
+.btn-warning-dark {
+    background-color: #FFAC41 !important;
+}
+.btn-warning-dark:hover{
+    background-color: #D89216 !important;
+}
+
+/*! Colors  */
+.color-light {
+    color: #EDEDED !important;
+}
+.background-light {
+    background-color: #DDDDDD !important;
+}
+.bg-alert-success {
+    background-color: #4E9F3D !important;
+    color: #EDEDED !important;
+}
