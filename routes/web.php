@@ -35,4 +35,5 @@ use Illuminate\Support\Facades\Route;
         Route::get('meja-json', 'Admin\MejaController@meja_json');
         Route::get('/meja-off/{id}', 'Admin\MejaController@meja_off' );
         Route::post('meja-setting', 'Admin\MejaController@store');
+        Route::get('meja-setting/{id}', 'Admin\MejaController@show');
     }); 
