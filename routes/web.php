@@ -32,4 +32,5 @@ use Illuminate\Support\Facades\Route;
 
         //! Meja
         Route::get('/meja-setting', 'Admin\MejaController@index'); 
+        Route::get('meja-json', 'Admin\MejaController@meja_json');
     }); 
