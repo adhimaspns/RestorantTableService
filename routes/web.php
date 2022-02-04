@@ -29,4 +29,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('/user-setting/{id}', 'Admin\UserController@show');
         Route::get('/user-nonaktif/{id}', 'Admin\UserController@user_nonaktif');
         Route::get('/user-json', 'Admin\UserController@user_json'); 
+
+        //! Meja
+        Route::get('/meja-setting', 'Admin\MejaController@index'); 
     }); 
