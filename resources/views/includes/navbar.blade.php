@@ -18,7 +18,7 @@
                         Settings
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Meja</a>
+                        <a class="dropdown-item @yield('meja-setting')" href="{{ url('admin/meja-setting') }}">Meja</a>
                         <a class="dropdown-item @yield('user')" href="{{ route('user.index') }}">Users</a>
                     </div>
                 </li>
