@@ -27,7 +27,8 @@
                 </li>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0">
+            <form action="{{ url('logout') }}" method="POST" class="form-inline my-2 my-lg-0">
+                @csrf
                 <button class="btn btn-danger border-radius-20" type="submit">Logout</button>
             </form>
         </div>
