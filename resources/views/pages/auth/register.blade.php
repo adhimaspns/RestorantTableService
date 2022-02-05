@@ -1,4 +1,5 @@
 @extends('layouts.auth')
+@section('title-page', 'Register')
 
 @section('main-content')
     <div class="container">
