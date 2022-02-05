@@ -36,4 +36,6 @@ use Illuminate\Support\Facades\Route;
         Route::get('/meja-off/{id}', 'Admin\MejaController@meja_off' );
         Route::post('meja-setting', 'Admin\MejaController@store');
         Route::get('meja-setting/{id}', 'Admin\MejaController@show');
+        Route::get('meja-setting/{id}/edit', 'Admin\MejaController@edit');
+        Route::patch('meja-setting/{id}', 'Admin\MejaController@update');
     }); 
