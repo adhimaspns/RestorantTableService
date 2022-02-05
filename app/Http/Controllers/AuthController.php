@@ -22,7 +22,7 @@ class AuthController extends Controller
             if (Auth::user()->level == "Kasir") {
 
                 //! Jika memiliki level kasir maka akan dialihkan ke halaman admin 
-                return redirect('admin/user-setting');
+                return redirect('admin/beranda');
 
             } else {
                 
