@@ -2,17 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\User;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
+    public function login()
+    {
+        return view('pages.auth.login');
+    }
+
+    public function proses_login(Request $request)
+    {
+        //! Cek apakah user terdaftar pada database (Cocokan dengan username dan password) 
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+            
+            //! Jika ada kecocokan, maka cek user yang sedang request login memiliki level apa 
+            if (Auth::user()->level == "Kasir") {
+
+                //! Jika memiliki level kasir maka akan dialihkan ke halaman admin 
+                return redirect('admin/user-setting');
+
+            } else {
+                
+                //! Jika tidak maka dianggap user biasa 
+                // return redirect('beranda-biasa');
+            }
+            
+        } else {
+            return redirect('login')->with('gagal-login', "Username dan password tidak cocok!");
+        }
+    }
+
     public function register()
     {
         return view('pages.auth.register');
     }
 
-    public function proses_login(Request $request)
+    public function proses_register(Request $request)
     {
 
         //! Validasi
@@ -47,5 +75,12 @@ class AuthController extends Controller
         ]); 
 
         return redirect('/')->with('success', 'Selamat anda berhasil registrasi!');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        return redirect('login')->with('success', 'Anda berhasil loggout!');
     }
 }
