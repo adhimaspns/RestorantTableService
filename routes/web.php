@@ -27,6 +27,9 @@ use Illuminate\Support\Facades\Route;
     //! Route Admin
     Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'CheckRole:Kasir']], function() {
 
+        //! Beranda
+        Route::get('beranda', 'Admin\BerandaController@index'); 
+
         //! Users Setting
         Route::get('/user-setting', 'Admin\UserController@index')->name('user.index'); 
         Route::get('/user-setting/{id}', 'Admin\UserController@show');
