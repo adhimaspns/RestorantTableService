@@ -18,11 +18,14 @@ use Illuminate\Support\Facades\Route;
     });
 
     //! AUTH
+    Route::get('login', 'AuthController@login');
+    Route::post('login', 'AuthController@proses_login');
     Route::get('register', 'AuthController@register'); 
-    Route::post('register', 'AuthController@proses_login');
+    Route::post('register', 'AuthController@proses_register');
+    Route::post('logout', 'AuthController@logout');
 
     //! Route Admin
-    Route::prefix('admin')->group(function() {
+    Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'CheckRole:Kasir']], function() {
 
         //! Users Setting
         Route::get('/user-setting', 'Admin\UserController@index')->name('user.index'); 
