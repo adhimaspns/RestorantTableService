@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
     Route::get('/', function () {
-        return view('layouts.admin.app');
+        return view('app');
     });
 
     //! AUTH
@@ -47,4 +47,13 @@ use Illuminate\Support\Facades\Route;
 
         //! Booking
         Route::get('booking', 'Admin\BookingController@index');
+        Route::get('booking-json', 'Admin\BookingController@booking_json');
     }); 
+
+    //! Route User
+    Route::group(['middleware' => ['auth', 'CheckRole:Customer']], function() {
+
+        //! Beranda
+        Route::get('beranda', 'BerandaController@index'); 
+    }); 
+
