@@ -55,5 +55,12 @@ use Illuminate\Support\Facades\Route;
 
         //! Beranda
         Route::get('beranda', 'BerandaController@index'); 
+
+        //! Checkout
+        Route::get('proses-checkout/{id}', 'CheckoutController@cetak_notransaksi');
+        Route::get('booking/checkout/{no_transaksi}', 'CheckoutController@booking_checkout');
+        Route::post('checkout', 'CheckoutController@checkout');
+        Route::get('booking/bukti-pembayaran/{no_transaksi}', 'CheckoutController@bukti_bayar');
+        Route::post('booking/bukti-pembayaran/{no_transaksi}', 'CheckoutController@proses_bukti_bayar');
     }); 
 
