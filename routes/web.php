@@ -48,6 +48,8 @@ use Illuminate\Support\Facades\Route;
         //! Booking
         Route::get('booking', 'Admin\BookingController@index');
         Route::get('booking/lunas', 'Admin\BookingController@booking_lunas');
+        Route::get('booking/sukses', 'Admin\BookingController@booking_sukses');
+        Route::get('booking-sukses-json', 'Admin\BookingController@booking_sukses_json');
         Route::get('booking-lunas-json', 'Admin\BookingController@booking_lunas_json');
         Route::get('booking-json', 'Admin\BookingController@booking_json');
     }); 
