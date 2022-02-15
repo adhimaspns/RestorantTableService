@@ -52,6 +52,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('booking-sukses-json', 'Admin\BookingController@booking_sukses_json');
         Route::get('booking-lunas-json', 'Admin\BookingController@booking_lunas_json');
         Route::get('booking-json', 'Admin\BookingController@booking_json');
+        Route::post('booking/checkout', 'Admin\BookingController@booking_chekout');
     }); 
 
     //! Route User
