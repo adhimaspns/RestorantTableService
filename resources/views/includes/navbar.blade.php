@@ -10,8 +10,15 @@
                 <li class="nav-item @yield('beranda')">
                     <a class="nav-link" href="{{ url('admin/beranda') }}">Beranda <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                <li class="nav-item dropdown @yield('booking')">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Booking
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item @yield('persetujuan')" href="{{ url('admin/booking') }}">Menunggu Persetujuan</a>
+                        <a class="dropdown-item @yield('pembayaran')" href="{{ url('admin/booking/menunggu-pembayaran') }}">Menunggu Pembayaran</a>
+                        <a class="dropdown-item @yield('booking-sukses')" href="{{ url('admin/booking/sukses') }}">Sukses</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown @yield('setting')">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
