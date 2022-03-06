@@ -57,6 +57,10 @@ use Illuminate\Support\Facades\Route;
         Route::get('booking-json', 'Admin\BookingController@booking_json');
         Route::get('booking/sukses', 'Admin\BookingController@booking_sukses');
         Route::get('booking-sukses-json', 'Admin\BookingController@booking_sukses_json');
+
+        //! Laporan
+        Route::get('laporan', 'Admin\LaporanController@index');
+        Route::get('laporan-json', 'Admin\LaporanController@laporan_json');
     }); 
 
     //! Route User
