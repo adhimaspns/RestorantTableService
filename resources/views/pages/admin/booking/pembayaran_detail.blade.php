@@ -26,7 +26,6 @@
                                     <th>Nama Meja</th>
                                     <th>Durasi</th>
                                     <th>Harga</th>
-                                    {{-- <th>Bukti Transfer</th> --}}
                                 </tr>
                             </thead>
 
@@ -35,30 +34,27 @@
                                     <td>{{ $data_booking->meja->nama_meja }}</td>
                                     <td>{{ $data_booking->jam_awal }} s/d {{ $data_booking->jam_akhir }}</td>
                                     <td>Rp. {{ number_format($data_booking->grandtotal, 0, ',','.') }}</td>
-                                    {{-- <td>
-                                        <img src="{{ URL::asset('uploads/bukti-transfer/'. $data_booking->bukti_transfer) }}"
-                                            alt="bukti-transfer"
-                                            style="
-                                                width: 250px !important;
-                                                height: 250px !important;
-                                            "
-                                        >
-                                    </td> --}}
                                 </tr>
                             </tbody>
                         </table>
 
-                        <p>
-                            Bukti Transfer :
-                        </p>
-                        <img src="{{ URL::asset('uploads/bukti-transfer/'. $data_booking->bukti_transfer) }}"
-                            alt="bukti-transfer"
-                            class="margin-0-0-50"
-                            style="
-                                width: 350px !important;
-                                height: auto !important;
-                            "
-                        >
+                        @if ($data_booking->bukti_transfer != null)
+                            <p>
+                                Bukti Transfer :
+                            </p>
+                            <img src="{{ URL::asset('uploads/bukti-transfer/'. $data_booking->bukti_transfer) }}"
+                                alt="bukti-transfer"
+                                class="margin-0-0-50"
+                                style="
+                                    width: 350px !important;
+                                    height: auto !important;
+                                "
+                            >
+                        @else
+                            <p>
+                                Bukti Transfer : -
+                            </p>
+                        @endif
 
                         <a href="{{ url('admin/persetujuan/'. $no_transaksi .'/checkout') }}" class="btn btn-block btn-success">
                             Checkout
