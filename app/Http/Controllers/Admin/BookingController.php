@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
@@ -154,7 +155,13 @@ class BookingController extends Controller
         $hari_ini      = date('Y-m-d');
 
         $data_booking = Booking::where('no_transaksi', $no_transaksi)->with(['meja'])->first();
-        $data_meja    = Booking::where('mejaID', $data_booking->mejaID)->where('jam_awal', '!=', null)->where('jam_akhir', '!=', null)->where('created_at', $hari_ini)->get();
+        $data_meja    = Booking::where('mejaID', $data_booking->mejaID)
+                                ->where('jam_awal', '!=', null)
+                                ->where('jam_akhir', '!=', null)
+                                ->where('jam_awal', '!=', $data_booking->jam_awal)
+                                ->where('jam_akhir', '!=', $data_booking->jam_akhir)
+                                ->where('status', '!=', 'Berhasil')
+                                ->whereDate('created_at', Carbon::today())->get();
 
         return view('pages.admin.booking.persetujuan_detail', compact('data_meja', 'no_transaksi', 'data_booking'));
     }
