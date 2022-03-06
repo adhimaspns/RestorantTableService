@@ -35,8 +35,8 @@
                                 @forelse ($data_meja as $dm)
                                     <tr>
                                         <td>{{ $no }}</td>
-                                        <td>{{ $jam_awal }}</td>
-                                        <td>{{ $jam_akhir }}</td>
+                                        <td>{{ $dm->jam_awal }}</td>
+                                        <td>{{ $dm->jam_akhir }}</td>
                                     </tr>
                                 <?php
                                     $no++
