@@ -29,8 +29,8 @@
                         <a class="dropdown-item @yield('user')" href="{{ route('user.index') }}">Users</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
+                <li class="nav-item @yield('laporan')">
+                    <a class="nav-link" href="{{ url('admin/laporan') }}">Laporan</a>
                 </li>
             </ul>
 
