@@ -47,15 +47,16 @@ use Illuminate\Support\Facades\Route;
 
         //! Booking
         Route::get('booking', 'Admin\BookingController@index');
-        Route::get('booking/lunas', 'Admin\BookingController@booking_lunas');
+        Route::get('booking/menunggu-persetujuan', 'Admin\BookingController@persetujuan');
+        Route::get('persetujuan-json', 'Admin\BookingController@persetujuan_json');
+        Route::get('booking/menunggu-persetujuan/{no_transaksi}/detail', 'Admin\BookingController@persetujuan_detail');
+        Route::get('persetujuan/{no_transaksi}/{status}', 'Admin\BookingController@persetujuan');
+        Route::get('booking/menunggu-pembayaran', 'Admin\BookingController@pembayaran');
+        Route::get('pembayaran-json', 'Admin\BookingController@pembayaran_json');
+        Route::get('booking/menunggu-pembayaran/{no_transaksi}/detail', 'Admin\BookingController@pembayaran_detail');
+        Route::get('booking-json', 'Admin\BookingController@booking_json');
         Route::get('booking/sukses', 'Admin\BookingController@booking_sukses');
         Route::get('booking-sukses-json', 'Admin\BookingController@booking_sukses_json');
-        Route::get('booking-lunas-json', 'Admin\BookingController@booking_lunas_json');
-        Route::get('booking-json', 'Admin\BookingController@booking_json');
-        // Route::post('booking/checkout', 'Admin\BookingController@booking_chekout');
-        Route::get('booking/lunas/{no_transaksi}', 'Admin\BookingController@proses_booking_lunas');
-        Route::get('booking/sukses/{no_transaksi}', 'Admin\BookingController@proses_booking_sukses');
-        Route::get('booking/lunas/{no_transaksi}', 'Admin\BookingController@proses_booking_lunas');
     }); 
 
     //! Route User
