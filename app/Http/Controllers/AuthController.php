@@ -27,7 +27,7 @@ class AuthController extends Controller
             } else {
                 
                 //! Jika tidak maka dianggap user biasa 
-                // return redirect('beranda-biasa');
+                return redirect('beranda');
             }
             
         } else {
