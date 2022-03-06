@@ -39,7 +39,7 @@ class CheckoutController extends Controller
         $hari_ini      = date('Y-m-d');
 
         $data_checkout = Booking::where('no_transaksi', $no_transaksi)->with(['meja'])->first(); 
-        $meja          = Booking::where('mejaID', $data_checkout->mejaID)->where('jam_awal', '!=', null)->where('jam_akhir', '!=', null)->where('created_at', $hari_ini)->get(); 
+        $meja          = Booking::where('mejaID', $data_checkout->mejaID)->where('jam_awal', '!=', null)->where('jam_akhir', '!=', null)->where('status', '!=', 'Berhasil')->whereDate('created_at', Carbon::today())->get(); 
 
         return view('pages.booking.checkout', compact('meja', 'data_checkout'));
     }
@@ -82,7 +82,7 @@ class CheckoutController extends Controller
 
         //! Validasi
         $rules  = [
-            'file'     => 'mimes:jpeg,jpg,png | max:2000',
+            // 'file'     => 'mimes:jpeg,jpg,png | max:2000',
         ];
 
         $pesan  = [
