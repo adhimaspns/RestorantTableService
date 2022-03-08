@@ -1,9 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        @auth
+        @if (Auth::user()->level != null)
             <a class="navbar-brand" href="{{ url('beranda') }}">Restaurant Table Service</a>
-            @endauth
+        @else
             <a class="navbar-brand" href="{{ url('/') }}">Restaurant Table Service</a>
+        @endif
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
