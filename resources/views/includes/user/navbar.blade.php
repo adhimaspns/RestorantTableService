@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        @if (Auth::user()->level != null)
+        @if (Auth::check())
             <a class="navbar-brand" href="{{ url('beranda') }}">Restaurant Table Service</a>
         @else
             <a class="navbar-brand" href="{{ url('/') }}">Restaurant Table Service</a>
