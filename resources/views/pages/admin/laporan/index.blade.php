@@ -8,9 +8,34 @@
 
 @section('main-content')
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="margin-top-100 ">Laporan</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-6 margin-top-100">
+                <div class="card">
+                    <div class="card-header text-center">
+                        Cetak Laporan
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ url('admin/proses-laporan-by-date') }}" method="post">
+                            @csrf
+                            <div class="row">
+                                <div class="col">
+                                    <label>Tanggal Awal</label>
+                                    <input type="date" name="tgl_awal" class="form-control">
+                                </div>
+                                <div class="col">
+                                    <label>Tanggal Akhir</label>
+                                    <input type="date" name="tgl_akhir" class="form-control">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-block btn-danger margin-top-20">
+                                <i class="fas fa-file-pdf"></i> Cetak
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 margin-top-50">
+                <h2>Laporan Transaksi</h2>
                 <div class="card-body margin-bottom-50 table-responsive p-0">
                     <table class="table table-hover text-nowrap table-striped table-bordered" id="data-meja">
                         <thead class="thead-dark">
