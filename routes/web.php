@@ -59,6 +59,8 @@ use Illuminate\Support\Facades\Route;
         //! Laporan
         Route::get('laporan', 'Admin\LaporanController@index');
         Route::get('laporan-json', 'Admin\LaporanController@laporan_json');
+        Route::post('proses-laporan-by-date', 'Admin\LaporanController@proses_laporan_by_date');
+        Route::get('laporan/cetak-laporan', 'Admin\LaporanController@cetak_laporan');
     }); 
 
     //! Route User
