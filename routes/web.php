@@ -61,6 +61,7 @@ use Illuminate\Support\Facades\Route;
         Route::get('laporan-json', 'Admin\LaporanController@laporan_json');
         Route::post('proses-laporan-by-date', 'Admin\LaporanController@proses_laporan_by_date');
         Route::get('laporan/cetak-laporan', 'Admin\LaporanController@cetak_laporan');
+        Route::get('laporan/{no_transaksi}/detail', 'Admin\LaporanController@detail');
     }); 
 
     //! Route User
