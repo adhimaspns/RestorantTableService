@@ -34,6 +34,21 @@ use Illuminate\Support\Facades\Route;
         Route::get('/user-nonaktif/{id}', 'Admin\UserController@user_nonaktif');
         Route::get('/user-json', 'Admin\UserController@user_json'); 
 
+        //! Menu
+        Route::get('menu/makanan', 'Admin\MenuController@index')->name('menu.index'); 
+        Route::get('makanan-json', 'Admin\MenuController@makanan_json');
+        Route::post('menu/makanan', 'Admin\MenuController@makanan_store');
+        Route::get('menu/makanan/{id}/detail', 'Admin\MenuController@show');
+        Route::get('menu/makanan/{id}/edit', 'Admin\MenuController@edit');
+        Route::patch('menu/makanan/{id}', 'Admin\MenuController@update');
+
+        Route::get('menu/minuman', 'Admin\MenuController@index_minuman');
+        Route::get('minuman-json', 'Admin\MenuController@minuman_json');
+        Route::post('menu/minuman', 'Admin\MenuController@minuman_store');
+        Route::get('menu/minuman/{id}/detail', 'Admin\MenuController@show_minuman');
+        Route::get('menu/minuman/{id}/edit', 'Admin\MenuController@edit_minuman');
+        Route::patch('menu/minuman/{id}', 'Admin\MenuController@update_minuman');
+
         //! Meja
         Route::get('/meja-setting', 'Admin\MejaController@index'); 
         Route::get('meja-json', 'Admin\MejaController@meja_json');
