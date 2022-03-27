@@ -29,6 +29,18 @@
                         <a class="dropdown-item @yield('user')" href="{{ route('user.index') }}">Users</a>
                     </div>
                 </li>
+                {{-- <li class="nav-item @yield('menu')">
+                    <a class="nav-link" href="{{ url('admin/menu-seeting') }}">Menu</a>
+                </li> --}}
+                <li class="nav-item dropdown @yield('menu')">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Menu
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item @yield('makanan')" href="{{ url('admin/menu/makanan') }}">Makanan</a>
+                        <a class="dropdown-item @yield('minuman')" href="{{ url('admin/menu/minuman') }}">Minuman</a>
+                    </div>
+                </li>
                 <li class="nav-item @yield('laporan')">
                     <a class="nav-link" href="{{ url('admin/laporan') }}">Laporan</a>
                 </li>
