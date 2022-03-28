@@ -85,7 +85,7 @@
                     </div>
                 </div>
 
-                <a href="{{ url('admin/booking/menunggu-persetujuan') }}" class="btn btn-secondary margin-top-20">
+                <a href="{{ url('admin/booking') }}" class="btn btn-secondary margin-top-20">
                     <i class="fas fa-arrow-circle-left"></i> Kembali
                 </a>
             </div>

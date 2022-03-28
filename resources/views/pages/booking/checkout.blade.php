@@ -107,7 +107,7 @@
                             <input type="hidden" name="mejaID" value="{{ $data_checkout->mejaID }}">
 
                             <button type="submit" class="btn btn-block btn-sm btn-primary">
-                                Checkout
+                                Lanjutkan, pilih menu makanan
                             </button>
                         </form>
                     </div>

@@ -21,11 +21,12 @@
                         <p class="card-text">{!! Str::limit($meja->deskripsi, 25, ' ...') !!}</p>
 
                         <i class="text-muted">Rp. {{ number_format($meja->harga, 0, ',', '.') }} /Jam</i>
-                        @auth
-                            <a href="{{ url('proses-checkout/' .$meja->id_meja ) }}" class="btn btn-success"><i class="fas fa-calendar-check"></i> Booking</a>
-                        @endauth
 
-                        <a href="{{ url('login') }}" class="btn btn-success"><i class="fas fa-calendar-check"></i> Booking</a>
+                        @if (Auth::check())
+                            <a href="{{ url('proses-checkout/' .$meja->id_meja ) }}" class="btn btn-success"><i class="fas fa-calendar-check"></i> Booking</a>
+                        @else
+                            <a href="{{ url('login') }}" class="btn btn-success"><i class="fas fa-calendar-check"></i> Booking</a>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -52,6 +52,7 @@
             @if ($user_booking != null && $data_meja != null)
                 <div class="col-lg-8 margin-top-50">
                     @if ($user_booking->status == "Menunggu Pembayaran" OR $user_booking->status == "Menunggu Persetujuan" OR $user_booking->status == "Diproses")
+                        <h3>Booking Meja</h3>
                         <table class="table table-bordered table-striped table-sm table-hover">
                             <thead>
                                 <tr>
@@ -65,9 +66,45 @@
                                 <tr>
                                     <td>{{ $data_meja->nama_meja}}</td>
                                     <td>{{ $user_booking->jam_awal }} s/d {{ $user_booking->jam_akhir}}</td>
-                                    <td>Rp. {{ number_format($user_booking->grandtotal, 0, ',', '.') }}</td>
+                                    <td>Rp. {{ number_format($subtotal_meja, 0, ',', '.') }}</td>
                                 </tr>
                                 <tr></tr>
+                            </tbody>
+                        </table>
+
+                        <h3 class="margin-top-50">Menu</h3>
+                        <table class="table table-bordered table-striped table-sm table-hover">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Menu</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga Satuan</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php
+                                    $no = 1;
+                                ?>
+                                @foreach ($data_menu as $dm)
+                                    <tr>
+                                        <td>{{$no}}</td>
+                                        <td>{{ $dm->menu }}</td>
+                                        <td>{{ $dm->jml }}</td>
+                                        <td>{{ number_format($dm->harga) }}</td>
+                                        <td>{{ number_format($dm->subtotal) }}</td>
+                                    </tr>
+                                <?php
+                                    $no++;
+                                ?>
+                                @endforeach
+
+                                <tr>
+                                    <td colspan="4">Total Yang Dibayarkan </td>
+                                    <td>{{ number_format($user_booking->grandtotal,0,',','.') }}</td>
+                                </tr>
                             </tbody>
                         </table>
                     @endif
@@ -78,7 +115,7 @@
                             <b>3714 0102 3780 534</b> Atas Nama <b>Adhimas Putra Nugraha Sugianto</b>, jika dalam kurun waktu 30 menit dari durasi awal booking belum melakukan pembayaran maka akan dibatalkan oleh admin. screenshoot bukti transfer anda kemudian upload dengan menekan tombol dibawah! 
                         </p>
                         <center>
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-success margin-bottom-50" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-lg fa-money-check-alt"></i> Upload Bukti Pembayaran
                             </button>
 

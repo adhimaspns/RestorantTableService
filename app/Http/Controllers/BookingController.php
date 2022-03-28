@@ -8,6 +8,7 @@ use App\User;
 use Carbon\Carbon;
 use App\Models\Booking;
 use App\Models\Meja;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -23,7 +24,7 @@ class BookingController extends Controller
         $date      = date('Y m d', strtotime($carbon));
 
         $user_booking = Booking::where('customerID', $user_auth)
-                                ->whereDate('created_at', Carbon::today())->first();
+                                ->whereDate('created_at', Carbon::today())->orderBy('created_at', 'DESC')->first();
 
         if ($user_booking == null) {
             // return "Data Tidak ada";
@@ -33,9 +34,12 @@ class BookingController extends Controller
             return view('pages.booking.index', compact('user_booking', 'data_meja'));
         } else {
             // return "ada Data";
-            $data_meja    = Meja::where('id_meja', $user_booking->mejaID)->first();
+            $data_meja     = Meja::where('id_meja', $user_booking->mejaID)->first();
+            $data_menu     = Menu::where('no_transaksi', $user_booking->no_transaksi)->get();
+            $subtotal_menu = Menu::where('no_transaksi', $user_booking->no_transaksi)->sum('subtotal');
+            $subtotal_meja = $user_booking->grandtotal - $subtotal_menu; 
 
-            return view('pages.booking.index', compact('user_booking', 'data_meja'));
+            return view('pages.booking.index', compact('user_booking', 'data_meja', 'data_menu', 'subtotal_meja'));
         }
 
         //! Status Booking

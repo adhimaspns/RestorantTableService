@@ -67,7 +67,8 @@ class CheckoutController extends Controller
             'grandtotal'   => $grand_total
         ]);
 
-        return redirect('booking');
+        // return redirect('booking');
+        return redirect('pesan-menu/' . $no_transaksi);
 
         // return redirect('booking/bukti-pembayaran/' .  $no_transaksi);
 

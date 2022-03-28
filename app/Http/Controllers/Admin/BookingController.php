@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use PDF;
 use Carbon\Carbon;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use App\Models\Meja;
+use App\Models\Menu;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -79,11 +81,25 @@ class BookingController extends Controller
 
             return redirect('admin/booking/menunggu-pembayaran')->with('success', 'Transaksi berhasil digagalkan!');
         } elseif ($status == "berhasil") {
+
             $data_booking->update([
                 'status'    => "Berhasil"
             ]);
 
-            return redirect('admin/booking/sukses')->with('success', "Transaksi berhasil!");
+            $data_booking = Booking::where('no_transaksi', $no_transaksi)->first();
+            $data_menu    = Menu::where('no_transaksi', $no_transaksi)->get();
+            $data_meja    = Meja::where('id_meja', $data_booking->mejaID)->first();
+            $sum_menu     = Menu::where('no_transaksi', $no_transaksi)->sum('subtotal');
+
+            //! Aritmatika
+            $subtotal_meja = $data_booking->grandtotal - $sum_menu; 
+
+            $pdf            = PDF::loadview('pages.booking.cetak_nota', compact('data_booking', 'data_menu', 'data_meja', 'subtotal_meja', 'sum_menu'));
+            return $pdf->download('laporan-transaksi.pdf');
+
+            // return redirect('admin/booking/sukses')->with('success', "Transaksi berhasil!");
+            // return view('pages.booking.cetak_nota', compact('data_booking', 'data_menu', 'data_meja', 'subtotal_meja', 'sum_menu'));
+
         }
 
     }

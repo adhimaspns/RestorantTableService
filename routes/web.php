@@ -94,5 +94,10 @@ use Illuminate\Support\Facades\Route;
 
         //! Booking
         Route::get('booking', 'BookingController@index'); 
+
+        //! Menu
+        Route::get('pesan-menu/{no_transaksi}', 'MenuController@checkout'); 
+        Route::post('pesan-menu/proses/{kategori}/{no_transaksi}', 'MenuController@proses_pesan_menu');
+        Route::get('pesan-menu/checkout/{no_transaksi}', 'MenuController@checkout_akhir');
     }); 
 
